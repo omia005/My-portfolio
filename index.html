@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Portfolio</title>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <style>
         /* Global Styles */
         * {
@@ -325,7 +327,82 @@
             width: 100%;
             border-radius: 5px;
         }
-        
+        .project-card {
+        position: relative; /* Needed for absolute positioning of buttons */
+        overflow: hidden; /* Keeps everything contained */
+    }
+
+    .project-img {
+        position: relative; /* Container for absolute positioned buttons */
+        height: 250px;
+        overflow: hidden;
+    }
+
+    /* Button Container */
+    .project-buttons {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        right: 0;
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        padding: 0 20px;
+        z-index: 2; /* Ensures buttons stay above image */
+    }
+
+    /* Button Styles */
+    .project-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 20px;
+        background: rgba(255, 255, 255, 0.9);
+        color: #333;
+        border-radius: 30px;
+        text-decoration: none;
+        font-size: 14px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(255,255,255,0.3);
+    }
+
+    /* Button Hover Effects */
+    .project-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        background: white;
+    }
+
+    /* Specific Button Colors */
+    .project-button.youtube {
+        background: rgba(255, 0, 0, 0.9);
+        color: white;
+    }
+
+    .project-button.slides {
+        background: rgba(244, 180, 0, 0.9);
+        color: #222;
+    }
+
+    /* Icon Sizing */
+    .project-button i {
+        font-size: 16px;
+    }
+
+    /* Darken image on hover to make buttons pop */
+    .project-card:hover .project-img::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(0,0,0,0.2);
+        z-index: 1;
         /* Responsive Styles */
         @media (max-width: 768px) {
             .about-content, .project-content {
@@ -344,6 +421,68 @@
                 font-size: 36px;
             }
         }
+   /* Updated Project Links Section */
+        .project-links {
+            display: flex;
+            gap: 5px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+        .project-links {
+    margin-top: 15px; 
+    margin-bottom: 10px;
+    justify-content: flex-start; 
+}
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 5px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+         /* Adjust icon sizes in project links */
+    .project-link i {
+        font-size: 14px; /* Adjust this value to your preferred size */
+    }
+    
+    /* Optional: Make the icon and text align better */
+    .project-link {
+        font-size: 4px;
+        padding: 5px 5px; /* Slightly smaller padding */
+    }
+        .project-link:hover {
+            background: #2980b9;
+        }
+        
+        .project-link.youtube {
+            background: #FF0000;
+        }
+        
+        .project-link.youtube:hover {
+            background: #CC0000;
+        }
+        
+        .project-link.slides {
+            background: #F4B400;
+            color: #333;
+        }
+        
+        .project-link.slides:hover {
+            background: #DB9B00;
+        }
+.project-link {
+    height: 26px;
+    font-size: 12px;
+    padding: 3px 10px;
+}
+.project-link i {
+    font-size: 12px;
+}
+        
     </style>
 </head>
 <body>
@@ -398,18 +537,32 @@
             <h2 class="section-title">My Projects</h2>
             <div class="projects-grid">
                 <!-- Project 1 -->
-                <div class="project-card">
-                    <div class="project-img">
-                        <img src="C:\Users\hp\Downloads\Screenshot_2025-07-26_1509135528-120.png" alt=Project 1">
-                    </div>
-                    <div class="project-info">
-                        <h3> Web Application</h3>
-                        <p>A platform that structures relevant digital for users,incorporating AI recommendations on popular skills required in the job market .</p>
-                        <a href="https://drive.google.com/file/d/1XWCQYE5Ld3kObYnqMYvUheMQNLtqJqzH/view?usp=sharing" class="btn">View        Project</a>
-                    </div>
-                </div>
-                
-                <!-- Project 2 -->
+               <div class="project-card">
+    <div class="project-img">
+        <img src="https://via.placeholder.com/600x400" alt="Project 4">
+        
+        <!-- Buttons positioned inside image area -->
+        <div class="project-buttons">
+            <a href="https://youtu.be/xzcFDhCDAkQ?si=MypO3IQDqWl7gXUa" 
+               target="_blank" 
+               class="project-button youtube">
+                <i class="fab fa-youtube"></i> Demo
+            </a>
+            
+            <a href="https://docs.google.com/presentation/d/1IFgYjbtOQErk51X4Kv9LNg4A4SK63RtTUFwsmGBWC7A/edit?usp=sharing" 
+               target="_blank" 
+               class="project-button slides">
+                <i class="fas fa-file-powerpoint"></i> Slides
+            </a>
+        </div>
+    </div>
+    
+    <div class="project-info">
+        <h3>Web Application</h3>
+        <p>A platform that structures relevant digital for users,incorporating AI recommendations on popular skills required in the job market .</p>
+        <a href="project4.html" class="btn">View Project Details</a>
+    </div>
+</div>                <!-- Project 2 -->
                 <div class="project-card">
                     <div class="project-img">
                         <img src="https://via.placeholder.com/600x400" alt="Project 2">
