@@ -1,1 +1,515 @@
-# My-portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #3498db;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://via.placeholder.com/1920x1080') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 10px 30px;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #2980b9;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 36px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-img {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        
+        .about-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: #f1f1f1;
+        }
+        
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .project-img {
+            height: 250px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 20px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+            font-size: 22px;
+        }
+        
+        .project-info p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        /* Skills Section */
+        .skills {
+            padding: 100px 0;
+            background-color: white;
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .skill {
+            background: #f1f1f1;
+            padding: 15px 25px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background-color: #2c3e50;
+            color: white;
+        }
+        
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        .form-group textarea {
+            height: 150px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+         .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: white;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-icon {
+            font-size: 24px;
+        }
+
+        /* Social Media Specific Colors */
+        .email { color: #D44638; }
+        .linkedin { color: #0A66C2; }
+        .instagram { color: #E4405F; }
+        .facebook { color: #1877F2; }
+        /* Project Page Styles (to be used on individual project pages) */
+        .project-page {
+            padding: 100px 0;
+        }
+        
+        .project-header {
+            margin-bottom: 50px;
+        }
+        
+        .project-content {
+            display: flex;
+            gap: 50px;
+            margin-bottom: 50px;
+        }
+        
+        .project-main-img {
+            flex: 2;
+        }
+        
+        .project-main-img img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        .project-details {
+            flex: 1;
+        }
+        
+        .project-gallery {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 50px;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-content, .project-content {
+                flex-direction: column;
+            }
+            
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .project-gallery {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Evans' Portfolio</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Welcome to My Creative Space</h1>
+                <p>I design and build digital experiences that make a technology work for people</p>
+                <a href="#projects" class="btn">View My Work</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-img">
+                    <img src="C:\Users\hp\Downloads\levitating-music-headphones-display.jpg" alt="Profile Image">
+                </div>
+                <div class="about-text">
+                    <h3>Hi, I'm Evans Omia</h3>
+                    <p>Evans Omia is an aspiring Software developer and gospel artist. He is passionate about building accessible, performant web apps with React and TypeScript, turning complex problems into intuitive user experiences as well as sharing the light of God through music ministry. </p>
+                    <p>With  these skills , he hopes to be able to create solutions that will reduce unemployment and offer job opportunities to the young people. He has worked in a group of students doing ALX, in which they were to build wireframes for developing an app. He has also served as a leader in various teams and capacities.</p>
+                    <a href="https://drive.google.com/file/d/1F4-QMNZbzngpu9nQztLvOTPn7VfSwQkH/view?usp=sharing" class="btn">Download Resume</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="C:\Users\hp\Downloads\Screenshot_2025-07-26_1509135528-120.png" alt=Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3> Web Application</h3>
+                        <p>A platform that structures relevant digital for users,incorporating AI recommendations on popular skills required in the job market .</p>
+                        <a href="https://drive.google.com/file/d/1XWCQYE5Ld3kObYnqMYvUheMQNLtqJqzH/view?usp=sharing" class="btn">View        Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Mobile App Design</h3>
+                        <p>UI/UX design for a fitness tracking mobile application with custom illustrations.</p>
+                        <a href="project2.html" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://via.placeholder.com/600x400" alt="Project 3">
+                    </div>
+                    <div class="project-info">
+                        <h3>Brand Identity</h3>
+                        <p>Complete brand identity package including logo, color palette, and brand guidelines.</p>
+                        <a href="project3.html" class="btn">View Project</a>
+                    </div>
+                </div>
+                
+                <!-- Add more project cards as needed -->
+                <!-- Project 4 -->
+             </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">My Skills</h2>
+            <div class="skills-container">
+                <div class="skill">HTML/CSS</div>
+                <div class="skill">JavaScript</div>
+                <div class="skill">UI/UX Design</div>
+                <div class="skill">React</div>
+                <div class="skill">Node.js</div>
+                <div class="skill">Photoshop</div>
+                <div class="skill">Illustrator</div>
+                <div class="skill">Figma</div>
+                <div class="skill">Project Management</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit" class="btn">Send Message</button>
+            </form>
+        </div>
+    </section>
+ <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+
+            <!-- NEW: Contact Info with Icons -->
+            <div class="contact-info">
+                <a href="mailto:evansomia005@gmail.com" class="contact-item email">
+                    <i class="fas fa-envelope contact-icon"></i>
+                    <span>gmail</span>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/evans-m-a72aa02b3/" target="_blank" class="contact-item linkedin">
+                    <i class="fab fa-linkedin contact-icon"></i>
+                    <span>LinkedIn</span>
+                </a>
+                
+                <a href="https://www.instagram.com/omia443/" target="_blank" class="contact-item instagram">
+                    <i class="fab fa-instagram contact-icon"></i>
+                    <span>Instagram</span>
+                </a>
+                
+                <a href="https://www.facebook.com/profile.php?id=100082079050198" target="_blank" class="contact-item facebook">
+                    <i class="fab fa-facebook contact-icon"></i>
+                    <span>Facebook</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Evan's Portfolio. All rights reserved.</p>
+        </div>
+    </footer>
